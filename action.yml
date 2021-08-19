@@ -1,7 +1,12 @@
 name: 'Install ansible'
 description: 'Install ansible '
+inputs:
+  version:
+    description: 'Ansible version to be used'
+    required: false
+    default: '2.9.0'
 runs:
   using: "composite"
   steps:
-    - run: ${{ github.action_path }}/ansible.sh
+    - run: ${{ github.action_path }}/ansible.sh ${{ inputs.version }}
       shell: bash
